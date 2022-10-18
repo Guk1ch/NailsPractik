@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NailsPractik", "NailsPractik\NailsPractik.csproj", "{C2B12CCD-82EC-4B43-AF15-E5D36F08A0C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{4CC90F0B-C94E-4600-9B5D-79F0112B71F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C2B12CCD-82EC-4B43-AF15-E5D36F08A0C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2B12CCD-82EC-4B43-AF15-E5D36F08A0C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2B12CCD-82EC-4B43-AF15-E5D36F08A0C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CC90F0B-C94E-4600-9B5D-79F0112B71F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CC90F0B-C94E-4600-9B5D-79F0112B71F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CC90F0B-C94E-4600-9B5D-79F0112B71F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CC90F0B-C94E-4600-9B5D-79F0112B71F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

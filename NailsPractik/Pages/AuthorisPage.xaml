@@ -66,6 +66,14 @@
                 Grid.Row="4"
                 Content="Войти"
                 Click="btnLogin_Click"/>
+        <CheckBox x:Name="cbSaveLogin"
+                  Content="Запомнить аккаунт?"
+                  IsChecked="True"
+                  Grid.Row="5"
+                  Grid.Column="1"
+                  Grid.ColumnSpan="2"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"/>
 
 
     </Grid>

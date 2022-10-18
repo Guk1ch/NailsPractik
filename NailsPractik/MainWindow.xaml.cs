@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NailsPractik.Pages;
 
 namespace NailsPractik
 {
@@ -23,6 +24,7 @@ namespace NailsPractik
 		public MainWindow()
 		{
 			InitializeComponent();
+			frame_main.NavigationService.Navigate(new AuthorisPage());
 		}
 	}
 }
