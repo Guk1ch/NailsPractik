@@ -26,6 +26,8 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-       
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="10" Background="MistyRose"/>
+        <StackPanel Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="10" Background="MistyRose"/>
+
     </Grid>
 </Page>
