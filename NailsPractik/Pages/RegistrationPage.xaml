@@ -51,7 +51,7 @@
                  Grid.Column="2"
                  HorizontalAlignment="Stretch"
                  Height="30"/>
-        <PasswordBox x:Name="tbPass"
+        <TextBox x:Name="tbPass"
                      Grid.Row="3"
                      Grid.Column="2"
                      HorizontalAlignment="Stretch"
@@ -60,12 +60,12 @@
                 Grid.Column="1"
                 Grid.Row="4"
                 Content="Вернуться"
-                Click="btnReg_Click"/>
+                Click="btnBack_Click"/>
         <Button x:Name="btnReg"
                 Grid.Column="2"
                 Grid.Row="4"
                 Content="Зарегистрироваться"
-                Click="btnLogin_Click"/>
+                Click="btnReg_Click"/>
         
     </Grid>
 </Page>

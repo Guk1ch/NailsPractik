@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Core;
+using Core.DataBase;
 
 namespace NailsPractik.Pages
 {
@@ -20,7 +22,7 @@ namespace NailsPractik.Pages
 	/// </summary>
 	public partial class MainPage : Page
 	{
-		public MainPage()
+		public MainPage(User user)
 		{
 			InitializeComponent();
 		}

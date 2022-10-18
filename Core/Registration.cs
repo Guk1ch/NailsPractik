@@ -20,5 +20,18 @@ namespace Core
 			BdConnection.connection.User.Add(newUser);
 			BdConnection.connection.SaveChanges();
 		}
+		public static bool UniqueLogin(string login)
+		{
+			users = new ObservableCollection<User>(BdConnection.connection.User.ToList());
+			bool loginUnic = true;
+			foreach (var i in users)
+			{
+				if (i.Login == login)
+				{
+					loginUnic = false;
+				}
+			}
+			return loginUnic;
+		}
 	}
 }
