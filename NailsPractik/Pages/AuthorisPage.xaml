@@ -59,11 +59,13 @@
         <Button x:Name="btnReg"
                 Grid.Column="1"
                 Grid.Row="4"
+                VerticalAlignment="Center"
                 Content="Зарегистрироваться"
                 Click="btnReg_Click"/>
         <Button x:Name="btnLogin"
                 Grid.Column="2"
                 Grid.Row="4"
+                VerticalAlignment="Center"
                 Content="Войти"
                 Click="btnLogin_Click"/>
         <CheckBox x:Name="cbSaveLogin"

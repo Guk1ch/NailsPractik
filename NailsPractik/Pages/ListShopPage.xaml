@@ -9,6 +9,22 @@
       Title="ListShopPage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="10" Background="MistyRose"/>
+        <Button x:Name="btnBack" Content="К записи"  VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" Click="btnBack_Click"/>
+
     </Grid>
 </Page>

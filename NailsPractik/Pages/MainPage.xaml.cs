@@ -36,5 +36,15 @@ namespace NailsPractik.Pages
 		{
 
 		}
+
+		private void btnSaveStatic_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void btnShop_Click(object sender, RoutedEventArgs e)
+		{
+			NavigationService.Navigate(new ListShopPage());
+		}
 	}
 }

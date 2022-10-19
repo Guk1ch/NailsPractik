@@ -28,6 +28,9 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="10" Background="MistyRose"/>
         <StackPanel Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="10" Background="MistyRose"/>
+        
+        <Button x:Name="btnSaveStatic" Grid.Column="3" Grid.Row="5" VerticalAlignment="Center" Content="Отчет" Click="btnSaveStatic_Click"/>
+        <Button x:Name="btnShop" Grid.Column="5" Grid.Row="0" VerticalAlignment="Center" Content="Магазины" Click="btnShop_Click"/>
 
     </Grid>
 </Page>
