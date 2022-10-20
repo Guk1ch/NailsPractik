@@ -25,6 +25,39 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="10" Background="MistyRose"/>
         <Button x:Name="btnBack" Content="К записи"  VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" Click="btnBack_Click"/>
-
+        <ListView x:Name="lvShops"
+                              ItemsSource="{Binding shopList}"
+                              Grid.Column="0" Grid.ColumnSpan="3"
+                              Grid.Row="1" Grid.RowSpan="6"
+                              FontSize="20"
+                              SelectionChanged="lvShops_SelectionChanged">
+        <ListView.View>
+            <GridView>
+                <GridViewColumn>
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical"
+                                                        HorizontalAlignment="Center"
+                                                        Width="100">
+                                <Image Source="{Binding Image}" 
+                                                       Width="100" 
+                                                       Height="100"
+                                                       HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Title}"
+                                                           TextWrapping="Wrap"
+                                                           FontWeight="Bold"
+                                                           Foreground="Black"
+                                                           HorizontalAlignment="Center"
+                                                           TextAlignment="Center"/>
+                                <TextBlock Text="{Binding Link}" 
+                                                           TextWrapping="Wrap"
+                                                           TextAlignment="Center"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+            </GridView>
+        </ListView.View>
+        </ListView>
     </Grid>
 </Page>
