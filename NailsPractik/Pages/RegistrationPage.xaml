@@ -24,6 +24,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Background="MistyRose"/>
+        <Image Source="\img\logo.png"/>
 
         <TextBlock Text="Регистрация"
                    FontSize="30"

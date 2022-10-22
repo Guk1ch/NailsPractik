@@ -46,5 +46,10 @@ namespace NailsPractik.Pages
 		{
 			NavigationService.Navigate(new ListShopPage());
 		}
-	}
+
+        private void btnAddNewClient_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
 }

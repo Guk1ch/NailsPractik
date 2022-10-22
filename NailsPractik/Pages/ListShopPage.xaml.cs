@@ -40,5 +40,10 @@ namespace NailsPractik.Pages
 		{
 
 		}
-	}
+
+        private void btnAddNewShop_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
 }

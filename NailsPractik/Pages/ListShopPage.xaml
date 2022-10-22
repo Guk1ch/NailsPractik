@@ -24,7 +24,9 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="10" Background="MistyRose"/>
+        <Image Source="\img\logo.png" Grid.Column="1"/>
         <Button x:Name="btnBack" Content="К записи"  VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" Click="btnBack_Click"/>
+        <Button x:Name="btnAddNewShop" Content="Добавить магазин" VerticalAlignment="Center" Grid.Column="2" Grid.Row="0" Click="btnAddNewShop_Click"/>
         <ListView x:Name="lvShops"
                               ItemsSource="{Binding shopList}"
                               Grid.Column="0" Grid.ColumnSpan="3"
