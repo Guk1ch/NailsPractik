@@ -27,19 +27,11 @@ namespace NailsPractik.Pages
 			InitializeComponent();
 		}
 
-		private void btnReg_Click(object sender, RoutedEventArgs e)
-		{
-
-		}
-
-		private void btnLogin_Click(object sender, RoutedEventArgs e)
-		{
-
-		}
 
 		private void btnSaveStatic_Click(object sender, RoutedEventArgs e)
 		{
-
+			RecordWindow recordWindow = new RecordWindow();
+			recordWindow.ShowDialog();
 		}
 
 		private void btnShop_Click(object sender, RoutedEventArgs e)
@@ -49,7 +41,9 @@ namespace NailsPractik.Pages
 
         private void btnAddNewClient_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-    }
+			AddClientWindow addClientWindow = new AddClientWindow();
+			addClientWindow.ShowDialog();
+		}
+	}
 }
+

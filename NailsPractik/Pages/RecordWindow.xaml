@@ -19,7 +19,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Background="MistyRose"/>
-        <Image Source="\img\logo.png" Grid.Column="1"/>
+        <Image Source="/img/logo.png" Grid.Column="1"/>
         <ComboBox x:Name="CbClient" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"/>
         <StackPanel Grid.Column="2" Grid.Row="1" Orientation="vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Сумма"/>

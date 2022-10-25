@@ -13,10 +13,10 @@ namespace Core.DataBase
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class NailsEntities : DbContext
+    public partial class NailsEntities1 : DbContext
     {
-        public NailsEntities()
-            : base("name=NailsEntities")
+        public NailsEntities1()
+            : base("name=NailsEntities1")
         {
         }
     

@@ -46,7 +46,7 @@ namespace NailsPractik.Pages
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new ListShopPage());
         }
 
         private void btnSaveShop_Click(object sender, RoutedEventArgs e)
@@ -55,6 +55,7 @@ namespace NailsPractik.Pages
             shop.Link = tbLink.Text.Trim();
             BdConnection.connection.Shop.Add(shop);
             BdConnection.connection.SaveChanges();
+            MessageBox.Show("Все создалось!!");
 
         }
     }

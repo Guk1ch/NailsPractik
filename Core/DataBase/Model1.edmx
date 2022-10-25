@@ -41,7 +41,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
-          <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="Image" Type="varbinary(max)" />
           <Property Name="Link" Type="nvarchar(max)" />
           <Property Name="Favorite" Type="bit" />
         </EntityType>
@@ -206,7 +206,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Favorite" Type="Boolean" />
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_Shop" FromRole="Shop" ToRole="Order" />
@@ -299,7 +299,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="NailsEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="NailsEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Client" EntityType="Self.Client" />
           <EntitySet Name="Order" EntityType="Self.Order" />
           <EntitySet Name="Record" EntityType="Self.Record" />
@@ -333,7 +333,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="NailsModelStoreContainer" CdmEntityContainer="NailsEntities">
+        <EntityContainerMapping StorageEntityContainer="NailsModelStoreContainer" CdmEntityContainer="NailsEntities1">
           <EntitySetMapping Name="Client">
             <EntityTypeMapping TypeName="NailsModel.Client">
               <MappingFragment StoreEntitySet="Client">

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3e1c671cb053458094e9b8462b479c68" Name="Diagram1">
+      <Diagram DiagramId="fcc9e92b7f274afe93949bdef870d8de" Name="Diagram1">
         <EntityTypeShape EntityType="NailsModel.Client" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="NailsModel.Order" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="NailsModel.Record" Width="1.5" PointX="6" PointY="3.625" IsExpanded="true" />

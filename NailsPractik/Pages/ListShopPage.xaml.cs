@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Core;
 using Core.DataBase;
+using Prism.Commands;
 
 namespace NailsPractik.Pages
 {
@@ -22,10 +23,23 @@ namespace NailsPractik.Pages
 	/// </summary>
 	public partial class ListShopPage : Page
 	{
+		public Shop shop { get; set; }
 		public static List<Shop> shopList { get; set; }
+		private void NavHomeView(object Id)
+		{
+			if (Id is string destinationurl)
+				System.Diagnostics.Process.Start(shop.Link);
+		}
+		public string ExternalURL { get => shop.Link; }
+		private readonly ICommand navHomeViewCommand;
+		public ICommand NavHomeViewCommand
+		{
+			get { return navHomeViewCommand; }
+		}
 		public ListShopPage()
 		{
 			InitializeComponent();
+			navHomeViewCommand = new DelegateCommand<object>(NavHomeView);
 			shopList = ShopFunction.GetShops();
 			this.DataContext = this;
 		}
@@ -38,12 +52,15 @@ namespace NailsPractik.Pages
 
 		private void lvShops_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-
+			if(lvShops.SelectedItem != null)
+			{
+				shop = lvShops.SelectedItem as Shop;
+			}
 		}
 
         private void btnAddNewShop_Click(object sender, RoutedEventArgs e)
         {
-
+			NavigationService.Navigate(new AddShopPage());
         }
     }
 }

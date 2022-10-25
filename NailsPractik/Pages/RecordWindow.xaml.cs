@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Core;
+using Core.DataBase;
+using NailsPractik.Pages;
 
 namespace NailsPractik.Pages
 {
@@ -36,7 +39,8 @@ namespace NailsPractik.Pages
 
         private void btnAddNewClient_Click(object sender, RoutedEventArgs e)
         {
-
+            AddClientWindow addClientWindow = new AddClientWindow();
+            addClientWindow.ShowDialog();
         }
     }
 }

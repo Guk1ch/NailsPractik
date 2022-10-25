@@ -27,7 +27,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="10" Background="MistyRose"/>
-        <Image Source="\img\logo.png" Grid.Column="0"/>
+        <Image Source="/img/logo.png" Grid.Column="0"/>
         <StackPanel Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="10" Background="MistyRose"/>
         
         <Button x:Name="btnSaveStatic" Grid.Column="3" Grid.Row="5" VerticalAlignment="Center" Content="Отчет" Click="btnSaveStatic_Click"/>
