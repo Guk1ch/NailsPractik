@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="Nails" Height="450" Width="800">
     <Grid>
-        <Frame x:Name="frame_main" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="frame_main" />
     </Grid>
 </Window>

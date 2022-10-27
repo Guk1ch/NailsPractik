@@ -5,18 +5,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="fcc9e92b7f274afe93949bdef870d8de" Name="Diagram1">
-        <EntityTypeShape EntityType="NailsModel.Client" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NailsModel.Order" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="NailsModel.Record" Width="1.5" PointX="6" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="NailsModel.Shop" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="NailsModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="NailsModel.Type_Procedur" Width="1.5" PointX="3.75" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="NailsModel.User" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <AssociationConnector Association="NailsModel.FK_Record_Client" ManuallyRouted="false" />
-        <AssociationConnector Association="NailsModel.FK_Order_Shop" ManuallyRouted="false" />
-        <AssociationConnector Association="NailsModel.FK_Order_User" ManuallyRouted="false" />
-        <AssociationConnector Association="NailsModel.FK_Record_Type_Procedur" ManuallyRouted="false" />
-        <AssociationConnector Association="NailsModel.FK_Record_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="NailsModel.Client" Width="1.5" PointX="3.75" PointY="7.125" />
+        <EntityTypeShape EntityType="NailsModel.Order" Width="1.5" PointX="3" PointY="3.875" />
+        <EntityTypeShape EntityType="NailsModel.Record" Width="1.5" PointX="6" PointY="3.625" />
+        <EntityTypeShape EntityType="NailsModel.Shop" Width="1.5" PointX="0.75" PointY="0.875" />
+        <EntityTypeShape EntityType="NailsModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="7.875" />
+        <EntityTypeShape EntityType="NailsModel.Type_Procedur" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="NailsModel.User" Width="1.5" PointX="0.75" PointY="4" />
+        <AssociationConnector Association="NailsModel.FK_Record_Client" />
+        <AssociationConnector Association="NailsModel.FK_Order_Shop" />
+        <AssociationConnector Association="NailsModel.FK_Order_User" />
+        <AssociationConnector Association="NailsModel.FK_Record_Type_Procedur" />
+        <AssociationConnector Association="NailsModel.FK_Record_User" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

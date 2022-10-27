@@ -62,5 +62,10 @@ namespace NailsPractik.Pages
         {
 			NavigationService.Navigate(new AddShopPage());
         }
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+			System.Diagnostics.Process.Start(e.Uri.ToString());
+        }
     }
 }

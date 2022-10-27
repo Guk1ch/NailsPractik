@@ -49,10 +49,15 @@
                                                            HorizontalAlignment="Center"
                                                            TextAlignment="Center" 
                                                            Margin="15"/>
-                        <TextBlock Text="{Binding Link}" 
-                                                           TextWrapping="Wrap"
-                                                           TextAlignment="Center"
-                                                            Margin="15"/>
+                        <TextBlock TextWrapping="Wrap"
+                                   TextAlignment="Center"
+                                   Margin="15">
+                            <Hyperlink NavigateUri="{Binding Link}"
+                                       RequestNavigate="Hyperlink_RequestNavigate">
+                                Сайт
+                            </Hyperlink>
+                        </TextBlock>
+
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

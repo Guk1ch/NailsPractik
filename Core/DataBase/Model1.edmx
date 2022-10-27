@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="NailsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="NailsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="Id" />
@@ -41,7 +41,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
-          <Property Name="Image" Type="varbinary(max)" />
+          <Property Name="Image" Type="nvarchar(max)" />
           <Property Name="Link" Type="nvarchar(max)" />
           <Property Name="Favorite" Type="bit" />
         </EntityType>
@@ -159,11 +159,39 @@
             <End Role="Record" EntitySet="Record" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="NailsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="NailsEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Client" EntityType="NailsModel.Client" />
+          <EntitySet Name="Order" EntityType="NailsModel.Order" />
+          <EntitySet Name="Record" EntityType="NailsModel.Record" />
+          <EntitySet Name="Shop" EntityType="NailsModel.Shop" />
+          <EntitySet Name="sysdiagrams" EntityType="NailsModel.sysdiagrams" />
+          <EntitySet Name="Type_Procedur" EntityType="NailsModel.Type_Procedur" />
+          <EntitySet Name="User" EntityType="NailsModel.User" />
+          <AssociationSet Name="FK_Record_Client" Association="NailsModel.FK_Record_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Record" EntitySet="Record" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Shop" Association="NailsModel.FK_Order_Shop">
+            <End Role="Shop" EntitySet="Shop" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_User" Association="NailsModel.FK_Order_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Record_Type_Procedur" Association="NailsModel.FK_Record_Type_Procedur">
+            <End Role="Type_Procedur" EntitySet="Type_Procedur" />
+            <End Role="Record" EntitySet="Record" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Record_User" Association="NailsModel.FK_Record_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Record" EntitySet="Record" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="Id" />
@@ -173,7 +201,7 @@
           <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Nickname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CountEnter" Type="Int32" />
-          <NavigationProperty Name="Record" Relationship="Self.FK_Record_Client" FromRole="Client" ToRole="Record" />
+          <NavigationProperty Name="Record" Relationship="NailsModel.FK_Record_Client" FromRole="Client" ToRole="Record" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -183,8 +211,8 @@
           <Property Name="Id_shop" Type="Int32" Nullable="false" />
           <Property Name="Id_User" Type="Int32" />
           <Property Name="SumOrder" Type="Decimal" Precision="2" Scale="0" />
-          <NavigationProperty Name="Shop" Relationship="Self.FK_Order_Shop" FromRole="Order" ToRole="Shop" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Order_User" FromRole="Order" ToRole="User" />
+          <NavigationProperty Name="Shop" Relationship="NailsModel.FK_Order_Shop" FromRole="Order" ToRole="Shop" />
+          <NavigationProperty Name="User" Relationship="NailsModel.FK_Order_User" FromRole="Order" ToRole="User" />
         </EntityType>
         <EntityType Name="Record">
           <Key>
@@ -196,9 +224,9 @@
           <Property Name="Id_Type" Type="Int32" />
           <Property Name="Date" Type="DateTime" Precision="3" />
           <Property Name="PayPrice" Type="Decimal" Precision="2" Scale="0" />
-          <NavigationProperty Name="Client" Relationship="Self.FK_Record_Client" FromRole="Record" ToRole="Client" />
-          <NavigationProperty Name="Type_Procedur" Relationship="Self.FK_Record_Type_Procedur" FromRole="Record" ToRole="Type_Procedur" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Record_User" FromRole="Record" ToRole="User" />
+          <NavigationProperty Name="Client" Relationship="NailsModel.FK_Record_Client" FromRole="Record" ToRole="Client" />
+          <NavigationProperty Name="Type_Procedur" Relationship="NailsModel.FK_Record_Type_Procedur" FromRole="Record" ToRole="Type_Procedur" />
+          <NavigationProperty Name="User" Relationship="NailsModel.FK_Record_User" FromRole="Record" ToRole="User" />
         </EntityType>
         <EntityType Name="Shop">
           <Key>
@@ -206,16 +234,16 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Favorite" Type="Boolean" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Shop" FromRole="Shop" ToRole="Order" />
+          <NavigationProperty Name="Order" Relationship="NailsModel.FK_Order_Shop" FromRole="Shop" ToRole="Order" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="principal_id" Type="Int32" Nullable="false" />
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
@@ -227,7 +255,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Record" Relationship="Self.FK_Record_Type_Procedur" FromRole="Type_Procedur" ToRole="Record" />
+          <NavigationProperty Name="Record" Relationship="NailsModel.FK_Record_Type_Procedur" FromRole="Type_Procedur" ToRole="Record" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -236,12 +264,12 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_Order_User" FromRole="User" ToRole="Order" />
-          <NavigationProperty Name="Record" Relationship="Self.FK_Record_User" FromRole="User" ToRole="Record" />
+          <NavigationProperty Name="Order" Relationship="NailsModel.FK_Order_User" FromRole="User" ToRole="Order" />
+          <NavigationProperty Name="Record" Relationship="NailsModel.FK_Record_User" FromRole="User" ToRole="Record" />
         </EntityType>
         <Association Name="FK_Record_Client">
-          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
-          <End Role="Record" Type="Self.Record" Multiplicity="*" />
+          <End Type="NailsModel.Client" Role="Client" Multiplicity="0..1" />
+          <End Type="NailsModel.Record" Role="Record" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Client">
               <PropertyRef Name="Id" />
@@ -252,8 +280,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Order_Shop">
-          <End Role="Shop" Type="Self.Shop" Multiplicity="1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <End Type="NailsModel.Shop" Role="Shop" Multiplicity="1" />
+          <End Type="NailsModel.Order" Role="Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Shop">
               <PropertyRef Name="Id" />
@@ -264,8 +292,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Order_User">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <End Type="NailsModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="NailsModel.Order" Role="Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="Id" />
@@ -276,8 +304,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Record_Type_Procedur">
-          <End Role="Type_Procedur" Type="Self.Type_Procedur" Multiplicity="0..1" />
-          <End Role="Record" Type="Self.Record" Multiplicity="*" />
+          <End Type="NailsModel.Type_Procedur" Role="Type_Procedur" Multiplicity="0..1" />
+          <End Type="NailsModel.Record" Role="Record" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Type_Procedur">
               <PropertyRef Name="Id" />
@@ -288,8 +316,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Record_User">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Record" Type="Self.Record" Multiplicity="*" />
+          <End Type="NailsModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="NailsModel.Record" Role="Record" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="Id" />
@@ -299,35 +327,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="NailsEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Client" EntityType="Self.Client" />
-          <EntitySet Name="Order" EntityType="Self.Order" />
-          <EntitySet Name="Record" EntityType="Self.Record" />
-          <EntitySet Name="Shop" EntityType="Self.Shop" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="Type_Procedur" EntityType="Self.Type_Procedur" />
-          <EntitySet Name="User" EntityType="Self.User" />
-          <AssociationSet Name="FK_Record_Client" Association="Self.FK_Record_Client">
-            <End Role="Client" EntitySet="Client" />
-            <End Role="Record" EntitySet="Record" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Order_Shop" Association="Self.FK_Order_Shop">
-            <End Role="Shop" EntitySet="Shop" />
-            <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Order_User" Association="Self.FK_Order_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Record_Type_Procedur" Association="Self.FK_Record_Type_Procedur">
-            <End Role="Type_Procedur" EntitySet="Type_Procedur" />
-            <End Role="Record" EntitySet="Record" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Record_User" Association="Self.FK_Record_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="Record" EntitySet="Record" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -337,72 +336,72 @@
           <EntitySetMapping Name="Client">
             <EntityTypeMapping TypeName="NailsModel.Client">
               <MappingFragment StoreEntitySet="Client">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
                 <ScalarProperty Name="CountEnter" ColumnName="CountEnter" />
+                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Order">
             <EntityTypeMapping TypeName="NailsModel.Order">
               <MappingFragment StoreEntitySet="Order">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Id_shop" ColumnName="Id_shop" />
-                <ScalarProperty Name="Id_User" ColumnName="Id_User" />
                 <ScalarProperty Name="SumOrder" ColumnName="SumOrder" />
+                <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+                <ScalarProperty Name="Id_shop" ColumnName="Id_shop" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Record">
             <EntityTypeMapping TypeName="NailsModel.Record">
               <MappingFragment StoreEntitySet="Record">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Id_User" ColumnName="Id_User" />
-                <ScalarProperty Name="Id_Client" ColumnName="Id_Client" />
-                <ScalarProperty Name="Id_Type" ColumnName="Id_Type" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="PayPrice" ColumnName="PayPrice" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Id_Type" ColumnName="Id_Type" />
+                <ScalarProperty Name="Id_Client" ColumnName="Id_Client" />
+                <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Shop">
             <EntityTypeMapping TypeName="NailsModel.Shop">
               <MappingFragment StoreEntitySet="Shop">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="Link" ColumnName="Link" />
                 <ScalarProperty Name="Favorite" ColumnName="Favorite" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="NailsModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Type_Procedur">
             <EntityTypeMapping TypeName="NailsModel.Type_Procedur">
               <MappingFragment StoreEntitySet="Type_Procedur">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="NailsModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
